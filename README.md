@@ -42,7 +42,7 @@ roslaunch lec5_hw click_gen.launch
 - 上图给出了BIVP最优化问题的一般定义,首末两端的各阶次边界值全部给出，中间点只给出有限阶次的函数值，各分段多项式在连接点处更高阶函数值需满足连续性条件。当中间点给出所有阶函数值时便退化为BVP，因此BIVP更具一般性，更符合工程应用需求；本case中间点仅给出路径点信息，因此对应di=1。
 - 当求解问题为minimum jerk problem时，亦即v(t)=jerk时，有s = 3；根据下图的最优条件定理可知，对应jerk能量最优的轨迹必定是五次多项式（2s-1=5)
 <p align='center'>
-    <img src="./picture/optimalityCondition.png" alt="drawing" width="750"/>
+    <img src="./picture/otimalityCondition.png" alt="drawing" width="750"/>
 </p>
 - 因此以m个分段（对应m+1个路径点）各自的多项式系数为未知变量，根据边界值，中间点以及中间点处的连续性条件建立方程Mc=b进行求解，其中M为6m*6m方阵，c、b均为为6m*3的列向量。
 - 易知M是带状矩阵，且具有非奇异性，因此求解时间仅与未知变量数成线性关系；可调用Eigen库中的LU分解进行求解。
